@@ -34,11 +34,13 @@ ln -s /bin/aqbox out/bin/unlink
 # symlink superuser binaries
 ln -s /bin/aqbox out/sbin/login
 ln -s /bin/aqbox out/sbin/mount
+ln -s /bin/aqbox out/sbin/shutdown
 ln -s /bin/aqbox out/sbin/kbd
 
 cp ../system/fbterm/fbterm out/bin/
 cp ../system/nuklear/nuklear out/bin/
 cp ../system/kilo/kilo out/bin/
+cp ../system/fasm/fasm out/bin/
 
 cp dist/* out/ -r
 

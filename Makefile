@@ -1,6 +1,6 @@
 export
 
-ARCH = x86
+ARCH = x86_64
 CP = cp
 BASH = bash
 
@@ -48,7 +48,7 @@ ramdisk/initrd.img: system
 	cd ramdisk; $(BASH) build.sh
 
 try: aquila.iso
-	qemu-kvm -cdrom aquila.iso -serial stdio -m 1G -d cpu_reset -no-reboot -hda hd.img -boot d
+	sudo kvm -cdrom aquila.iso -serial stdio -m 1G -d cpu_reset -no-reboot -hda hd.img -boot d
 
 .PHONY: clean
 clean:
@@ -62,3 +62,6 @@ clean:
 distclean:
 	$(MAKE) clean
 	$(MAKE) $(KERNEL_MAKE_FLAGS) distclean -C kernel
+
+run:
+	qemu-system-i386 -cdrom aquila.iso

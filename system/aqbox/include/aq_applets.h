@@ -17,6 +17,7 @@ int cmd_sh(int, char**);
 int cmd_stat(int, char**);
 int cmd_uname(int, char**);
 int cmd_unlink(int, char**);
+int cmd_shutdown(int, char**);
 
 #define APPLET(name) {#name, cmd_##name}
 
@@ -40,6 +41,7 @@ struct applet {
     APPLET(stat),
     APPLET(uname),
     APPLET(unlink),
+    APPLET(shutdown),
 };
 
 #define APPLETS_NR (sizeof(applets)/sizeof(*applets))
